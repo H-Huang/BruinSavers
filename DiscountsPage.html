@@ -14,8 +14,9 @@
       <!--save the discount-->
       [<a href="#" class="save-discount">Save</a>]
       <!-- -->
+      <br />
+      {{starCount}} people starred this!
     </li>
-
 </template>
 
 <template name="addDiscount">
@@ -85,9 +86,10 @@
 </template>
 
 <template name="savedDiscounts">
+  <h1>Your Saved Discounts</h1>
   <ul>
   {{#each discount}}
-    {{> discountItem}}
+    {{> savedDiscountsItem}}
   {{/each}}
   </ul>
 </template>

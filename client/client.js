@@ -4,9 +4,16 @@ Template.discounts.helpers({
   }
 });
 
+Template.discountItem.helpers({
+  'starCount': function(){
+    return this.starred.length;
+  }
+});
+
 Template.savedDiscounts.helpers({
   'discount': function(){
-    return SavedDiscounts.find({}, {sort: {createdAt: -1}});
+    var userId = Meteor.userId();
+    return Discounts.find( {starred: userId}, {sort: {createdAt: -1}} );
   }
 });
 
@@ -78,5 +85,14 @@ Template.login.events({
         }
       });
 
+  }
+});
+
+Template.savedDiscountsItem.events({
+  "click .delete-discount": function(event, template){
+    event.preventDefault();
+    var documentId = this._id;
+    var confirm = window.confirm("Save this discount?");
+    Meteor.call("deleteSavedDiscount", documentId, confirm);
   }
 });

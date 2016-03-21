@@ -1,5 +1,4 @@
 Discounts = new Mongo.Collection('discounts');
-SavedDiscounts = new Mongo.Collection('SavedDiscounts');
 
 Router.configure({
   layoutTemplate: 'main',
@@ -18,4 +17,11 @@ Router.route('/', {
 
 Router.route('/register');
 Router.route('/login');
-Router.route('/savedDiscounts');
+
+//savedDiscounts template in discountspage.html
+Router.route('/saveddiscounts', {
+  name: 'savedDiscounts',
+  waitOn: function(){
+    Meteor.subscribe('discounts');
+  }
+});
