@@ -1,5 +1,32 @@
 Discounts = new Mongo.Collection('discounts');
 
+/*yogi-ben admin code, for info: https://github.com/yogiben/meteor-admin*/
+AdminConfig = {
+  collections: {
+    Discounts: {}
+  }
+};
+
+Schemas = {};
+Schemas.Discounts = new SimpleSchema({
+  name: {
+    type: String,
+    max: 60
+  },
+  createdAt: {
+    type: Date,
+    label: 'Date',
+    autoValue: function () {
+      if (this.isInsert) {
+        return new Date();
+      }
+    }
+  }
+});
+
+Discounts.attachSchema(Schemas.Discounts)
+/*=================*/
+
 Router.configure({
   layoutTemplate: 'main',
   loadingTemplate: 'loading'
