@@ -1,6 +1,3 @@
-Houston.add_collection(Meteor.users);
-Houston.add_collection(Houston._admins);
-
 //security code - removed autopublish
 Meteor.publish('discounts', function(){
   return Discounts.find()

@@ -19,4 +19,9 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 iron:router
 accounts-password
 check
-houston:admin
+yogiben:admin
+fortawesome:fontawesome
+dburles:collection-helpers
+aldeed:collection2
+accounts-base
+alanning:roles
