@@ -6,7 +6,7 @@ AdminConfig = {
     Discounts: {}
   }
 };
-
+/*
 Schemas = {};
 Schemas.Discounts = new SimpleSchema({
   name: {
@@ -21,10 +21,14 @@ Schemas.Discounts = new SimpleSchema({
         return new Date();
       }
     }
+  },
+  starred: {
+    type: Array
+
   }
 });
 
-Discounts.attachSchema(Schemas.Discounts)
+Discounts.attachSchema(Schemas.Discounts)*/
 /*=================*/
 
 Router.configure({
