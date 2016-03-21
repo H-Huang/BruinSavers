@@ -14,6 +14,7 @@ Meteor.methods({
       name: discountName,
       expired: false,
       createdAt: new Date(),
+      starred: []
     }
     if(!currentUser){
       throw new Meteor.Error("not-logged-in", "You're not logged-in.");
@@ -27,4 +28,20 @@ Meteor.methods({
     }
   },
 
+  'saveDiscount': function(documentId, confirm){
+    var userId = Meteor.userId();
+    //put the userId into array
+    Discounts.update(
+      {_id: documentId, starred: {$ne: userId} },
+      { $push: { starred: userId } }
+    );
+  },
+
+  'deleteSavedDiscount': function(documentId, confirm){
+    var userId = Meteor.userId();
+    Discounts.update(
+      {_id: documentId },
+      { $pull: { starred: userId } }
+    );
+  }
 });
