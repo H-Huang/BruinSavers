@@ -25,3 +25,8 @@ dburles:collection-helpers
 aldeed:collection2
 accounts-base
 alanning:roles
+yogiben:autoform-file
+aldeed:autoform
+cfs:filesystem
+cfs:standard-packages
+cfs:base-package

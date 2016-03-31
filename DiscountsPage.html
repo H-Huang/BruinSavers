@@ -44,6 +44,7 @@
   <h1>Welcome to Bruin Discounts!</h1>
   {{#if currentUser}}
     {{> discounts}}
+    {{> images}}
   {{else}}
     <p>Please log in or register to view discounts.</p>
   {{/if}}
@@ -99,4 +100,14 @@
     {{name}}
     [<a href="#" class="delete-discount">Delete</a>]
   </li>
+</template>
+
+<!-- https://github.com/CollectionFS/Meteor-CollectionFS/wiki/Display-an-Uploaded-Image -->
+<template name="images">
+  <h1>HERE ARE THE IMAGES</h1>
+  {{#each images}}
+    <div>
+      <a href="{{this.url}}" target="_blank"><img src="{{this.url uploading='/images/uploading.gif' storing='/images/storing.gif'}}" alt="" class="thumbnail" /></a>
+    </div>
+  {{/each}}
 </template>

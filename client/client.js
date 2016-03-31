@@ -13,7 +13,8 @@ Template.discountItem.helpers({
 Template.savedDiscounts.helpers({
   'discount': function(){
     var userId = Meteor.userId();
-    return Discounts.find( {starred: userId}, {sort: {createdAt: -1}} );
+    var email = Meteor.users.findOne({_id: userId}).emails[0].address;
+    return Discounts.find( {starred: email}, {sort: {createdAt: -1}} );
   }
 });
 
@@ -94,5 +95,11 @@ Template.savedDiscountsItem.events({
     var documentId = this._id;
     var confirm = window.confirm("Save this discount?");
     Meteor.call("deleteSavedDiscount", documentId, confirm);
+  }
+});
+
+Template.images.helpers({
+  images: function () {
+    return Images.find(); // Where Images is an FS.Collection instance
   }
 });
