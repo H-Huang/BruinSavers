@@ -1,0 +1,27 @@
+<template name="navigation">
+    <ul>
+        <li><a href="{{pathFor route='home'}}">Home</a></li>
+        {{#if currentUser}}
+          <li><a href="#" class="logout">Logout</a></li>
+          <!-- not finished -->
+          <li><a href="{{pathFor route='savedDiscounts'}}">Saved Discounts</a></li>
+          <!-- -->
+        {{else}}
+          <li><a href="{{pathFor route='register'}}">Register</a></li>
+          <li><a href="{{pathFor route='login'}}">Login</a></li>
+        {{/if}}
+    </ul>
+</template>
+
+<template name="aboutPage">
+    <h1>About</h1>
+</template>
+
+<template name="home">
+  <h1>Welcome to Bruin Discounts!</h1>
+  {{#if currentUser}}
+    {{> discounts}}
+  {{else}}
+    <p>Please log in or register to view discounts.</p>
+  {{/if}}
+</template>

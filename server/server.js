@@ -27,18 +27,20 @@ Meteor.methods({
 
   'saveDiscount': function(documentId, confirm){
     var userId = Meteor.userId();
+    var email = Meteor.users.findOne({_id: userId}).emails[0].address;
     //put the userId into array
     Discounts.update(
-      {_id: documentId, starred: {$ne: userId} },
-      { $push: { starred: userId } }
+      {_id: documentId, starred: {$ne: email} },
+      { $push: { starred: email } }
     );
   },
 
   'deleteSavedDiscount': function(documentId, confirm){
     var userId = Meteor.userId();
+    var email = Meteor.users.findOne({_id: userId}).emails[0].address;
     Discounts.update(
       {_id: documentId },
-      { $pull: { starred: userId } }
+      { $pull: { starred: email } }
     );
   }
 });

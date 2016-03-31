@@ -1,0 +1,15 @@
+<template name="savedDiscounts">
+  <h1>Your Saved Discounts</h1>
+  <ul>
+  {{#each discount}}
+    {{> savedDiscountsItem}}
+  {{/each}}
+  </ul>
+</template>
+
+<template name="savedDiscountsItem">
+  <li>
+    {{name}}
+    [<a href="#" class="delete-discount">Delete</a>]
+  </li>
+</template>

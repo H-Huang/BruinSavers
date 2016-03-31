@@ -1,0 +1,20 @@
+<template name="discounts">
+  {{> addDiscount}}
+  <ul>
+  {{#each discount}}
+    {{> discountItem}}
+  {{/each}}
+  </ul>
+</template>
+
+<template name="discountItem">
+    <li>
+      {{name}}
+      [<a href="#" class="delete-discount">Delete</a>]
+      <!--save the discount-->
+      [<a href="#" class="save-discount">Save</a>]
+      <!-- -->
+      <br />
+      {{starCount}} people starred this!
+    </li>
+</template>
