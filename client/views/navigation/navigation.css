@@ -1,0 +1,22 @@
+body {
+	font-family: sans-serif;
+}
+
+.carousel-img {
+	height: 300px;
+	max-height: 500px;
+	margin: auto;
+}
+
+label, input {
+	display: block;
+}
+
+input[type="radio"] {
+	display: inline;
+	margin-left: 20px;
+}
+
+select {
+	margin-bottom: 30px;
+}
