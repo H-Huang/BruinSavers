@@ -81,6 +81,7 @@ Template.login.events({
       Meteor.loginWithPassword(email, password, function(error){
         if(error){
             console.log(error.reason);
+            document.getElementById("error_message").innerHTML = error.reason + ". Please try again.";
         } else {
             Router.go("home");
         }
