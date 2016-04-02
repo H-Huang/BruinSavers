@@ -19,6 +19,15 @@ Schemas.Discounts = new SimpleSchema({
     label: 'Name of discount',
     max: 60
   },
+  description: {
+    type: String,
+    label: 'Description',
+    max: 300
+  },
+  category: {
+    type: String,
+    label: 'Category',
+  },
   createdAt: {
     type: Date,
     label: 'Date',

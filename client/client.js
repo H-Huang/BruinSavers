@@ -19,11 +19,13 @@ Template.savedDiscounts.helpers({
 });
 
 Template.addDiscount.events({
-  'submit form': function(event){
+  'click .submit-form': function(event){
     event.preventDefault();
     var discountName = $('[name=discountName]').val();
-    Meteor.call('addNewDiscount', discountName);
-    $('[name=discountName]').val('')
+    var discountDescription = $('[name=discountDescription]').val();
+    var discountCategory = $('[name=category]').val();
+    Meteor.call('addNewDiscount', discountName, discountDescription, discountCategory);
+    $('#myModal').modal('toggle');
   }
 });
 
@@ -45,7 +47,7 @@ Template.discountItem.events({
 });
 
 Template.register.events({
-  'submit form': function(event){
+  'submit .modal-body form': function(event){
       event.preventDefault();
       var email = $('[name=email]').val();
       var name = $('[name=name]').val();
