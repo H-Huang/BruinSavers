@@ -4,11 +4,13 @@ Meteor.publish('discounts', function(){
 });
 
 Meteor.methods({
-  'addNewDiscount': function(discountName){
+  'addNewDiscount': function(discountName, discountDescription, discountCategory){
     var currentUser = Meteor.userId();
     check(discountName, String);
     var data = {
       name: discountName,
+      description: discountDescription,
+      category: discountCategory,
       expired: false,
       createdAt: new Date(),
       starred: []

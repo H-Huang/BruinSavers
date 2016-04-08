@@ -1,12 +1,43 @@
 <template name="addDiscount">
-    <form>
-        Create a discount:
-        <input type="text" placeholder="Type a discount here..." name="discountName">
-    </form>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Create a discount:</h4>
+          </div>
+          <div class="modal-body">
+            <form>
+                <label>What is the name event or place of business? </label>
+                <input type="text" placeholder="An event or place." name="discountName"><br>
+                <label>What is the discount? </label>
+                <input type="text" placeholder="A brief description." name="discountDescription"><br>
+                <label>Category: </label>
+                <select name="category" placeholder="Select:">
+                    <option value="food">Food and Drink</option>
+                    <option value="tech">Technology</option>
+                    <option value="housing">Housing</option>
+                    <option value="events">Events</option>
+                    <option value="misc">Miscellaneous</option>
+                </select><br>
+                <label>Is this specific to UCLA students? </label>
+                <input type="radio" name="uclastudent" value="yes" checked> Yes
+                <input type="radio" name="uclastudent" value="no"> No<br>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-primary submit-form">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
 </template>
 
 <template name="main">
-    <h1>Discounts</h1>
     {{> navigation}}
     {{> yield}}
     <hr />
