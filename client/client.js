@@ -57,6 +57,7 @@ Template.register.events({
       }, function(error){
         if(error){
             console.log(error.reason); // Output error if registration fails
+            document.getElementById("register_error_message").innerHTML = error.reason + ". Please try again.";
         } else {
             Router.go("home"); // Redirect user if registration succeeds
         }
