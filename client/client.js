@@ -47,7 +47,7 @@ Template.discountItem.events({
 });
 
 Template.register.events({
-  'submit .modal-body form': function(event){
+  'submit form': function(event){
       event.preventDefault();
       var email = $('[name=email]').val();
       var name = $('[name=name]').val();
