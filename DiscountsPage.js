@@ -59,6 +59,7 @@ Router.route('/', {
 
 Router.route('/register');
 Router.route('/login');
+Router.route('/contact');
 
 //savedDiscounts template in discountspage.html
 Router.route('/saveddiscounts', {
