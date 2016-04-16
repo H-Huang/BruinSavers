@@ -17,9 +17,11 @@ Images.allow({
   },
   download: function(userId) {
     return true;
-  }
+  },
+  remove: function () {
+      return true;
+  },
 });
-
 
 /*=========*/
 
@@ -34,9 +36,26 @@ AdminConfig = {
     }
   }
 };
-
 Schemas = {};
 Schemas.Discounts = new SimpleSchema({
+  picture: {
+     type: String,
+     label: "Picture",
+     optional: true,
+     autoform: {
+          afFieldInput: {
+              type: 'fileUpload',
+              collection: 'Images',
+              label: 'Choose file'
+              /*
+              onAfterInsert: function(err, fileObj) {
+                  //https://coderwall.com/p/o9np9q/get-unique-values-from-a-collection-in-meteor
+                  var myArray = Discounts.find().fetch();
+                  console.log(hi.size());
+          }*/
+        }
+     }
+  },
   name: {
     type: String,
     label: "Name of discount",
@@ -46,18 +65,6 @@ Schemas.Discounts = new SimpleSchema({
     type: Date,
     label: 'Date'
   },
-  picture: {
-     type: String,
-     label: 'Picture',
-     optional: true,
-     autoform: {
-          afFieldInput: {
-               type: 'fileUpload',
-               collection: 'Images',
-               label: 'Choose file'
-          }
-     }
-  },
   starred: {
     type: [String],
     label: 'People who starred this',
@@ -65,6 +72,16 @@ Schemas.Discounts = new SimpleSchema({
   }
 
 });
+
+Discounts.after.update(function (userId, doc, fieldNames, modifier, options) {
+  //http://stackoverflow.com/questions/26281323/retrieve-all-elements-in-an-array-in-mongodb MY MIND IS BLOWN OMG!!!
+  var myArray = Discounts.find().fetch();
+  var pictures = _.chain(myArray).pluck('picture').flatten().uniq().value();
+  //https://github.com/yogiben/meteor-autoform-file/issues/6
+  //var removeImages = Images.find( { _id: { $nin: pictures } } );
+  Images.remove({ _id: { $nin: pictures } } );
+  //console.log(removeImages);
+}, {fetchPrevious: true});
 
 Discounts.attachSchema(Schemas.Discounts)
 
