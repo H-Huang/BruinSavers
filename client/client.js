@@ -19,11 +19,13 @@ Template.savedDiscounts.helpers({
 });
 
 Template.addDiscount.events({
-  'submit form': function(event){
+  'click .submit-form': function(event){
     event.preventDefault();
     var discountName = $('[name=discountName]').val();
-    Meteor.call('addNewDiscount', discountName);
-    $('[name=discountName]').val('')
+    var discountDescription = $('[name=discountDescription]').val();
+    var discountCategory = $('[name=category]').val();
+    Meteor.call('addNewDiscount', discountName, discountDescription, discountCategory);
+    $('#myModal').modal('toggle');
   }
 });
 
@@ -57,6 +59,7 @@ Template.register.events({
       }, function(error){
         if(error){
             console.log(error.reason); // Output error if registration fails
+            document.getElementById("register_error_message").innerHTML = error.reason + ". Please try again.";
         } else {
             Router.go("home"); // Redirect user if registration succeeds
         }
@@ -81,6 +84,7 @@ Template.login.events({
       Meteor.loginWithPassword(email, password, function(error){
         if(error){
             console.log(error.reason);
+            document.getElementById("error_message").innerHTML = error.reason + ". Please try again.";
         } else {
             Router.go("home");
         }

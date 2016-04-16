@@ -36,6 +36,7 @@ AdminConfig = {
     }
   }
 };
+
 Schemas = {};
 Schemas.Discounts = new SimpleSchema({
   picture: {
@@ -60,6 +61,15 @@ Schemas.Discounts = new SimpleSchema({
     type: String,
     label: "Name of discount",
     max: 60
+  },
+  description: {
+    type: String,
+    label: 'Description',
+    max: 300
+  },
+  category: {
+    type: String,
+    label: 'Category',
   },
   createdAt: {
     type: Date,
@@ -103,6 +113,7 @@ Router.route('/', {
 
 Router.route('/register');
 Router.route('/login');
+Router.route('/contact');
 
 //savedDiscounts template in discountspage.html
 Router.route('/saveddiscounts', {

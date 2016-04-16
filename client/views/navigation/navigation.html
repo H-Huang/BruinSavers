@@ -1,0 +1,121 @@
+<template name="navigation">
+
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">BruinSavers</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="{{pathFor route='home'}}">Home <span class="sr-only">(current)</span></a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Discounts <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Housing</a></li>
+            <li><a href="#">Food and Drink</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="#">Technology</a></li>
+            <li><a href="#">Miscellaneous</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#" data-toggle="modal" data-target="#myModal">Add a Discount</a></li>
+          </ul>
+        </li>
+        <li><a href="{{pathFor route='contact'}}">Contact</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+          {{#if currentUser}}
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="{{pathFor route='savedDiscounts'}}">Saved Discounts</a></li>
+                <li><a href="#" class="settings">Account Settings</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#" class="logout">Log Out</a></li>
+              </ul>
+            </li>
+          {{else}}
+            <li><a href="{{pathFor route='login'}}">Log In</a></li>
+          `<li><a href="{{pathFor route='register'}}">Register</a></li>
+          {{/if}}
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+</template>
+
+<template name="home">
+  <h1>Welcome to Bruin Discounts!</h1>
+
+
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+    <li data-target="#myCarousel" data-slide-to="3"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img src="https://sdprofessionalsllc.com/wp-content/uploads/2012/09/iStock_000005739487Medium1.jpg" class="carousel-img" alt="{{discountItem}}">
+      <div class="carousel-caption">
+        <h1>In N' Out</h1>
+        <h3>Get your burger fix and maybe a shake while you're at it.</h3>
+      </div>
+    </div>
+
+    <div class="item">
+      <img src="http://www.titosburritos.com/wp-content/uploads/2014/07/Big-Easy-Burrito-2.jpg" class="carousel-img" alt="{{discountItem}}">
+      <div class="carousel-caption">
+        <h1>Chipotlé</h1>
+        <h3>Craving a burrito? Head to Chipotle to get some free chips and guac.</h3>
+      </div>
+    </div>
+
+    <div class="item">
+      <img src="http://rdcnewscdn.realtor.com/wp-content/uploads/2015/05/beer.jpg" class="carousel-img" alt="{{discountItem}}">
+      <div class="carousel-caption">
+        <h1>Barney's Beanery</h1>
+        <h3>Want a place to watch the game and down some booze? Students get 10% off craft beers at Barney's!</h3>
+      </div>
+    </div>
+
+    <div class="item">
+      <img src="img_flower2.jpg" class="carousel-img" alt="{{discountItem}}">
+    </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+  </div>
+
+  {{#if currentUser}}
+    {{> discounts}}
+  {{else}}
+    <p>Please log in or register to view discounts.</p>
+  {{/if}}
+
+</template>
+
+<template name="contact">
+    <h1>Contact</h1>
+</template>

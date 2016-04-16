@@ -31,3 +31,4 @@ cfs:standard-packages
 cfs:base-package
 yogiben:autoform-file
 matb33:collection-hooks
+twbs:bootstrap
