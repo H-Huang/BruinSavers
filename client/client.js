@@ -18,17 +18,6 @@ Template.savedDiscounts.helpers({
   }
 });
 
-Template.addDiscount.events({
-  'click .submit-form': function(event){
-    event.preventDefault();
-    var discountName = $('[name=discountName]').val();
-    var discountDescription = $('[name=discountDescription]').val();
-    var discountCategory = $('[name=category]').val();
-    Meteor.call('addNewDiscount', discountName, discountDescription, discountCategory);
-    $('#myModal').modal('toggle');
-  }
-});
-
 Template.discountItem.events({
   'click .delete-discount': function(event){
     event.preventDefault();

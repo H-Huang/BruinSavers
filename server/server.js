@@ -8,6 +8,7 @@ Meteor.publish('files', function() {
 });
 
 Meteor.methods({
+  /*
   'addNewDiscount': function(discountName, discountDescription, discountCategory){
     var currentUser = Meteor.userId();
     check(discountName, String);
@@ -23,7 +24,7 @@ Meteor.methods({
       throw new Meteor.Error("not-logged-in", "You're not logged-in.");
     }
     Discounts.insert(data);
-  },
+  },*/
 
   'removeDiscount': function(documentId, confirm){
     if(confirm){
