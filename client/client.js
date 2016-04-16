@@ -7,7 +7,13 @@ Template.discounts.helpers({
 Template.discountItem.helpers({
   'starCount': function(){
     return this.starred.length;
-  }
+  },
+
+  /*'discountImage': function(){
+    var pictureId = this.picture;
+    console.log(pictureId);
+    var picture = Images.findOne( {_id: pictureId} );
+  }*/
 });
 
 Template.savedDiscounts.helpers({
@@ -19,12 +25,13 @@ Template.savedDiscounts.helpers({
 });
 
 Template.discountItem.events({
+  /*
   'click .delete-discount': function(event){
     event.preventDefault();
     var documentId = this._id;
     var confirm = window.confirm("Delete this discount?");
     Meteor.call('removeDiscount', documentId, confirm);
-  },
+  },*/
 
   //saves the discount, passes method to server.js
   'click .save-discount': function(event){

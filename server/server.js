@@ -24,13 +24,13 @@ Meteor.methods({
       throw new Meteor.Error("not-logged-in", "You're not logged-in.");
     }
     Discounts.insert(data);
-  },*/
+  },
 
   'removeDiscount': function(documentId, confirm){
     if(confirm){
       Discounts.remove({_id: documentId});
     }
-  },
+  },*/
 
   'saveDiscount': function(documentId, confirm){
     var userId = Meteor.userId();
