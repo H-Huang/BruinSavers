@@ -93,11 +93,11 @@ Discounts.after.update(function (userId, doc, fieldNames, modifier, options) {
   //console.log(removeImages);
 }, {fetchPrevious: true});
 
-Discounts.attachSchema(Schemas.Discounts)
+Discounts.attachSchema(Schemas.Discounts);
 
 Router.configure({
-  layoutTemplate: 'main',
-  loadingTemplate: 'loading'
+  loadingTemplate: 'loading',
+  layoutTemplate: 'main'
 });
 
 Router.route('/', {

@@ -103,7 +103,7 @@ Template.savedDiscountsItem.events({
 });
 
 Template.images.helpers({
-  images: function () {
+  'images': function () {
     return Images.find(); // Where Images is an FS.Collection instance
   }
 });

@@ -31,6 +31,7 @@
         </div>
       </div>
     </div>
+</template>
 
 <template name="home">
   <h1>Welcome to Bruin Discounts!</h1>
@@ -49,24 +50,9 @@
     <p>Copyright &copy; Daily Bruin, 2016.</p>
 </template>
 
+
 <template name="loading">
     <p>Loading...</p>
-</template>
-
-<template name="savedDiscounts">
-  <h1>Your Saved Discounts</h1>
-  <ul>
-  {{#each discount}}
-    {{> savedDiscountsItem}}
-  {{/each}}
-  </ul>
-</template>
-
-<template name="savedDiscountsItem">
-  <li>
-    {{name}}
-    [<a href="#" class="delete-discount">Delete</a>]
-  </li>
 </template>
 
 <!-- https://github.com/CollectionFS/Meteor-CollectionFS/wiki/Display-an-Uploaded-Image -->
