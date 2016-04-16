@@ -10,21 +10,18 @@
           </div>
           <div class="modal-body">
             <form>
-                <label>What is the name event or place of business? </label>
+                <label>What is the name of the event or business? </label>
                 <input type="text" placeholder="An event or place." name="discountName"><br>
                 <label>What is the discount? </label>
                 <input type="text" placeholder="A brief description." name="discountDescription"><br>
                 <label>Category: </label>
                 <select name="category" placeholder="Select:">
+                    <option value="housing">Housing</option>
                     <option value="food">Food and Drink</option>
                     <option value="tech">Technology</option>
-                    <option value="housing">Housing</option>
                     <option value="events">Events</option>
                     <option value="misc">Miscellaneous</option>
                 </select><br>
-                <label>Is this specific to UCLA students? </label>
-                <input type="radio" name="uclastudent" value="yes" checked> Yes
-                <input type="radio" name="uclastudent" value="no"> No<br>
             </form>
           </div>
           <div class="modal-footer">
@@ -35,6 +32,14 @@
       </div>
     </div>
 
+<template name="home">
+  <h1>Welcome to Bruin Discounts!</h1>
+  {{#if currentUser}}
+    {{> discounts}}
+    {{> images}}
+  {{else}}
+    <p>Please log in or register to view discounts.</p>
+  {{/if}}
 </template>
 
 <template name="main">
@@ -46,4 +51,30 @@
 
 <template name="loading">
     <p>Loading...</p>
+</template>
+
+<template name="savedDiscounts">
+  <h1>Your Saved Discounts</h1>
+  <ul>
+  {{#each discount}}
+    {{> savedDiscountsItem}}
+  {{/each}}
+  </ul>
+</template>
+
+<template name="savedDiscountsItem">
+  <li>
+    {{name}}
+    [<a href="#" class="delete-discount">Delete</a>]
+  </li>
+</template>
+
+<!-- https://github.com/CollectionFS/Meteor-CollectionFS/wiki/Display-an-Uploaded-Image -->
+<template name="images">
+  <h1>HERE ARE THE IMAGES</h1>
+  {{#each images}}
+    <div>
+      <a href="{{this.url}}" target="_blank"><img src="{{this.url uploading='/images/uploading.gif' storing='/images/storing.gif'}}" alt="" class="thumbnail" /></a>
+    </div>
+  {{/each}}
 </template>

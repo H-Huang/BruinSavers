@@ -25,4 +25,10 @@ dburles:collection-helpers
 aldeed:collection2
 accounts-base
 alanning:roles
+aldeed:autoform
+cfs:filesystem
+cfs:standard-packages
+cfs:base-package
+yogiben:autoform-file
+matb33:collection-hooks
 twbs:bootstrap

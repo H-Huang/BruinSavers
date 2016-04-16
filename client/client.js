@@ -101,3 +101,9 @@ Template.savedDiscountsItem.events({
     Meteor.call("deleteSavedDiscount", documentId, confirm);
   }
 });
+
+Template.images.helpers({
+  images: function () {
+    return Images.find(); // Where Images is an FS.Collection instance
+  }
+});

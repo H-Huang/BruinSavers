@@ -3,6 +3,10 @@ Meteor.publish('discounts', function(){
   return Discounts.find()
 });
 
+Meteor.publish('files', function() {
+  return Images.find();
+});
+
 Meteor.methods({
   'addNewDiscount': function(discountName, discountDescription, discountCategory){
     var currentUser = Meteor.userId();
