@@ -1,6 +1,31 @@
 <template name="discounts">
-  <div class="row">
+  <div class="row discounts-view">
     <div class="col-md-3">
+      <h2>Housing</h2>
+      <ul>
+      {{#each discount}}
+        {{> discountItem}}
+      {{/each}}
+      </ul>
+    </div>
+    <div class="col-md-3">
+      <h2>Food/Drinks</h2>
+      <ul>
+      {{#each discount}}
+        {{> discountItem}}
+      {{/each}}
+      </ul>
+    </div>
+    <div class="col-md-3">
+      <h2>Events</h2>
+      <ul>
+      {{#each discount}}
+        {{> discountItem}}
+      {{/each}}
+      </ul>
+    </div>
+    <div class="col-md-3">
+      <h2>Technology</h2>
       <ul>
       {{#each discount}}
         {{> discountItem}}

@@ -1,16 +1,36 @@
 .image-title{
   text-align: center;
-
-}
-
-.carousel {
-  background-color: grey;
-  border:   1px solid black;
-  position: relative;
 }
 
 
+/*================*/
 
-.slick-prev:before, .slick-next:before {
-  color:    silver;
+.slick-slider {
+    width: 80%;
+    margin: 2% 10%;
+}
+
+.slick-slide {
+    background: white;
+    color: white;
+    padding: 20px 0;
+    font-size: 30px;
+    font-family: "Arial", "Helvetica";
+    text-align: center;
+}
+
+.image-display{
+  max-width:100%;
+  max-height:100%;
+  margin:auto;
+  display:block;
+}
+
+.slick-prev:before,
+.slick-next:before {
+    color: silver;
+}
+
+.slick-dots {
+    bottom: -40px;
 }

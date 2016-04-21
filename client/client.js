@@ -109,7 +109,9 @@ Template.imageItem.rendered = function() {
     dots: true,
     arrows: true,
     infinite: true,
-    speed: 300,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    speed: 800,
     slidesToShow: 1,
     adaptiveHeight: true
   });
