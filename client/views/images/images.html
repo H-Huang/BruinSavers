@@ -1,0 +1,17 @@
+<!-- https://github.com/CollectionFS/Meteor-CollectionFS/wiki/Display-an-Uploaded-Image -->
+<template name="images">
+  <div class="row">
+    <h1 class="image-title">HERE ARE THE IMAGES</h1>
+    <div class="carousel">
+      {{#each images}}
+        {{>imageItem}}
+      {{/each}}
+    </div>
+  </div>
+</template>
+
+<template name="imageItem">
+  <div>
+    <img src="{{this.url uploading='/images/uploading.gif' storing='/images/storing.gif'}}" alt="" class="thumbnail"/>
+  </div>
+</template>

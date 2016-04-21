@@ -103,3 +103,14 @@ Template.images.helpers({
     return Images.find(); // Where Images is an FS.Collection instance
   }
 });
+
+Template.imageItem.rendered = function() {
+  $('.carousel').slick({
+    dots: true,
+    arrows: true,
+    infinite: true,
+    speed: 300,
+    slidesToShow: 1,
+    adaptiveHeight: true
+  });
+}

@@ -1,9 +1,13 @@
 <template name="discounts">
-  <ul>
-  {{#each discount}}
-    {{> discountItem}}
-  {{/each}}
-  </ul>
+  <div class="row">
+    <div class="col-md-3">
+      <ul>
+      {{#each discount}}
+        {{> discountItem}}
+      {{/each}}
+      </ul>
+    </div>
+  </div>
 </template>
 
 <template name="discountItem">

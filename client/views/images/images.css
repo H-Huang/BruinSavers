@@ -1,0 +1,16 @@
+.image-title{
+  text-align: center;
+
+}
+
+.carousel {
+  background-color: grey;
+  border:   1px solid black;
+  position: relative;
+}
+
+
+
+.slick-prev:before, .slick-next:before {
+  color:    silver;
+}
