@@ -1,6 +1,22 @@
 Template.discounts.helpers({
-  'discount': function(){
-      return Discounts.find({}, {sort: {createdAt: -1}});
+  'discountHousing': function(){
+    var userId = Meteor.userId();
+    var email = Meteor.users.findOne({_id: userId}).emails[0].address;
+    return Discounts.find({},{sort: {createdAt: -1}} );
+  },
+
+  'discountFoodDrink': function(){
+    var userId = Meteor.userId();
+    var email = Meteor.users.findOne({_id: userId}).emails[0].address;
+    return Discounts.find( {category: "FoodDrink"}, {sort: {createdAt: -1}} );
+  },
+
+  'discountEvents': function(){
+
+  },
+
+  'discountTechnology': function(){
+
   }
 });
 
@@ -17,10 +33,22 @@ Template.discountItem.helpers({
 });
 
 Template.savedDiscounts.helpers({
-  'discount': function(){
+  'discountHousing': function(){
     var userId = Meteor.userId();
     var email = Meteor.users.findOne({_id: userId}).emails[0].address;
     return Discounts.find( {starred: email}, {sort: {createdAt: -1}} );
+  },
+
+  'discountFoodDrink': function(){
+
+  },
+
+  'discountEvents': function(){
+
+  },
+
+  'discountTechnology': function(){
+
   }
 });
 
@@ -61,6 +89,11 @@ Template.register.events({
         }
       }
     );
+  },
+
+  'click .message a': function(event){
+    event.preventDefault();
+    Router.go("login");
   }
 });
 
@@ -80,13 +113,19 @@ Template.login.events({
       Meteor.loginWithPassword(email, password, function(error){
         if(error){
             console.log(error.reason);
-            document.getElementById("error_message").innerHTML = error.reason + ". Please try again.";
+            document.getElementById("login_error_message").innerHTML = error.reason + ". Please try again.";
         } else {
             Router.go("home");
         }
       });
+  },
 
+  'click .message a': function(event){
+    event.preventDefault();
+    Router.go("register");
   }
+
+
 });
 
 Template.savedDiscountsItem.events({
