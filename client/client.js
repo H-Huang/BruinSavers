@@ -1,22 +1,18 @@
 Template.discounts.helpers({
   'discountHousing': function(){
-    var userId = Meteor.userId();
-    var email = Meteor.users.findOne({_id: userId}).emails[0].address;
-    return Discounts.find({},{sort: {createdAt: -1}} );
+    return Discounts.find({category: "Housing"},{sort: {createdAt: -1}} );
   },
 
   'discountFoodDrink': function(){
-    var userId = Meteor.userId();
-    var email = Meteor.users.findOne({_id: userId}).emails[0].address;
     return Discounts.find( {category: "FoodDrink"}, {sort: {createdAt: -1}} );
   },
 
   'discountEvents': function(){
-
+    return Discounts.find( {category: "Events"}, {sort: {createdAt: -1}} );
   },
 
   'discountTechnology': function(){
-
+    return Discounts.find( {category: "Technology"}, {sort: {createdAt: -1}} );
   }
 });
 
@@ -40,15 +36,21 @@ Template.savedDiscounts.helpers({
   },
 
   'discountFoodDrink': function(){
-
+    var userId = Meteor.userId();
+    var email = Meteor.users.findOne({_id: userId}).emails[0].address;
+    return Discounts.find( {starred: email}, {sort: {createdAt: -1}} );
   },
 
   'discountEvents': function(){
-
+    var userId = Meteor.userId();
+    var email = Meteor.users.findOne({_id: userId}).emails[0].address;
+    return Discounts.find( {starred: email}, {sort: {createdAt: -1}} );
   },
 
   'discountTechnology': function(){
-
+    var userId = Meteor.userId();
+    var email = Meteor.users.findOne({_id: userId}).emails[0].address;
+    return Discounts.find( {starred: email}, {sort: {createdAt: -1}} );
   }
 });
 
