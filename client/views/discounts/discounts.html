@@ -9,8 +9,7 @@
               <div class="modal-dialog">
                   <!-- Modal content-->
                   <div class="modal-content">
-                      <p>Date</p>
-                      <p>Description</p>
+                      {{> discountInfo}}
                   </div>
               </div>
           </div>
@@ -52,5 +51,12 @@
       <!-- -->
       <br />
       {{starCount}} people starred this!
+    </li>
+</template>
+
+<template name="discountInfo">
+    <li>
+        {{name}}
+        {{description}}
     </li>
 </template>
