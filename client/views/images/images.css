@@ -34,3 +34,32 @@
 .slick-dots {
     bottom: -40px;
 }
+
+/*
+ * Caption component
+ */
+.box{
+  position: relative;
+}
+
+.overbox{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: black;
+  opacity: 0;
+}
+
+.box:hover .overbox {
+  opacity: .6;
+}
+
+.title-overtext{
+  margin-top: 50px;
+}
+
+.tagline-overtext{
+  margin-top: 50px;
+}

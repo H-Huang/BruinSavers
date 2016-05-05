@@ -151,9 +151,23 @@ Template.imageItem.rendered = function() {
     arrows: true,
     infinite: true,
     autoplay: true,
-    autoplaySpeed: 5000,
+    autoplaySpeed: 4000,
     speed: 800,
     slidesToShow: 1,
     adaptiveHeight: true
   });
 }
+
+Template.imageItem.helpers({
+  'nameInfo': function(){
+    var picId = this._id;
+    var discount = Discounts.findOne( {picture: picId} );
+    return discount.name;
+  },
+
+  'descriptionInfo': function(){
+    var picId = this._id;
+    var discount = Discounts.findOne( {picture: picId} );
+    return discount.description;
+  }
+});

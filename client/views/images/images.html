@@ -1,7 +1,7 @@
 <!-- https://github.com/CollectionFS/Meteor-CollectionFS/wiki/Display-an-Uploaded-Image -->
 <template name="images">
   <div class="row">
-    <h1 class="image-title">HERE ARE THE IMAGES</h1>
+    <h1 class="image-title">Featured Images:</h1>
     <div class="carousel">
       {{#each images}}
         {{>imageItem}}
@@ -11,7 +11,11 @@
 </template>
 
 <template name="imageItem">
-  <div class="container">
-    <img class="thumbnail image-display" src="{{this.url uploading='/images/uploading.gif' storing='/images/storing.gif'}}" alt=""/>
-  </div>
+  <div class="box">
+    <img class="caption_media thumbnail image-display" src="{{this.url uploading='/images/uploading.gif' storing='/images/storing.gif'}}" alt=""/>
+	  <div class="overbox">
+	    <div class="title-overtext"> {{nameInfo}} </div>
+	    <div class="tagline-overtext"> {{descriptionInfo}} </div>
+	  </div>
+	</div>
 </template>

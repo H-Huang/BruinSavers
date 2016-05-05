@@ -4,15 +4,7 @@
       <h2>Housing</h2>
       <ul>
       {{#each discountHousing}}
-         <button data-toggle="modal" data-target="#myModal">{{> discountItem}}</button>
-          <div id="myModal" class="modal fade" role="dialog">
-              <div class="modal-dialog">
-                  <!-- Modal content-->
-                  <div class="modal-content">
-                      {{> discountInfo}}
-                  </div>
-              </div>
-          </div>
+         {> discountItem}}
       {{/each}}
       </ul>
     </div>
